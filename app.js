@@ -8,8 +8,8 @@ function () {
 });  
 // chat connector for communicating with the Bot Framework Service 
 var connector = new builder.ChatConnector({     
-    appId: process.env.MICROSOFT_APP_ID,     
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
+    appId: f5f2d580-bcbc-4844-974c-662f2dd1d7a9,     
+    appPassword: kvWKL0[$)qvdjkWULV2995!
 });
 // Listen for messages from users  
 server.post('/api/messages', connector.listen());  
