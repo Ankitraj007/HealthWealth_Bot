@@ -2,7 +2,7 @@ var restify = require('restify');
 var builder = require('botbuilder');  
 // Setup Restify Server 
 var server = restify.createServer(); 
-server.listen('https://healthandwealthapp.azurewebsites.net/api/messages', 
+server.listen('https://healthandwealthapp.azurewebsites.net', 
 function () {    
     console.log('%s listening to %s', server.name, server.url);  
 });  
