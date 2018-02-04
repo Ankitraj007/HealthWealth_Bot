@@ -179,7 +179,7 @@ bot.dialog('/giphy', [
         builder.Prompts.text(session, "What would you like to see?");
     }, function(session, results) {
         getGiphy(results.response).then(function(gif) {
-            // session.send(gif.toString());
+         session.send(gif.toString());
             console.log(JSON.parse(gif).data);
             session.send({
                 text: "Here you go!",
@@ -260,7 +260,7 @@ function getGiphy(searchString) {
         uri: 'https://api.giphy.com/v1/gifs/translate',
         qs: {
             s: searchString,
-            api_key: '9n8AIaWULVu37sA1k8eE38IwnCCjmXP9'
+            api_key: 'rZYSOi59Gd8F6OhSd07KU6xw4FL1x5bf'
         }
     }
     return rp(options);
