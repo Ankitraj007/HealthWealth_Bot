@@ -32,7 +32,7 @@ bot.on('conversationUpdate', function (message) {
     if (message.membersAdded[0].id === message.address.bot.id) {
         var reply = new builder.Message()
                 .address(message.address)
-                .text("Hello, I'm careBOTyou! How's your day going?");
+                .text("Hello, I am HealthWealthBot! How is your day going?");
         bot.send(reply);
     }
 });
@@ -45,8 +45,8 @@ bot.dialog('/', function(session) {
 			         session.beginDialog("/happy");
              } else if(score > 0.1) {             // stressed
 			         session.beginDialog("/stressed");
-             } else {                             // crisis
-               session.beginDialog("/crisis");
+             } else {                             // emergency
+               session.beginDialog("/emergency");
              }
         })
         .catch(function (err) {
@@ -70,7 +70,7 @@ bot.dialog("/stressed", [
         session.endDialog("Hope that cheers you up.")
         break;
       default:
-        builder.Prompts.text(session, "Sorry I don't know how to help with that, but I hope this quote will inspire you.");
+        builder.Prompts.text(session, "Sorry I don't know how to help with that, but I hope this quote will motivate you.");
         session.send(findMotivation());
         // session.send("Your mind will answer most questions if you learn to relax and wait for the answers.  --William S. Burroughs")
     }
@@ -110,15 +110,15 @@ bot.dialog('/reminder', [
 ]);
 
 
-  bot.dialog("/crisis", [
+  bot.dialog("/emergency", [
   	function(session) {
   		var question = "";
-  		if(session.message.text.includes("suicidal")) {
-  			question = "Please call this helpline for support: 1-833-456-4566?";
-  		} else if(session.message.text.includes("sad")) {
+  		if(session.message.text.includes("suicide")) {
+  			question = "Please call this helpline for support: 022 2754 6669?";
+  		} else if(session.message.text.includes("upset")) {
   			question = "I think it would be a good idea to text a friend.";
   		} else if(session.message.text.includes("depressed")) {
-  			question = "Check out this resource: http://www.bcmhsus.ca/our-services. Consider making an appointment with a professional.";
+  			question = "Check out this resource: https://thiswayup.org.au/how-do-you-feel/sad/ . Consider making an appointment with a professional.";
   		} else {
             question = "Consider reaching out to your family or friends or making an appointment with a professional.";
         }
@@ -126,7 +126,7 @@ bot.dialog('/reminder', [
   	},
 
   	function(session, results) {
-  		session.send("Thank you. Remember that you don't have to go through this alone.");
+  		session.send("Thank you. Remember that you don't have to go through this alone. I am here to help you");
   		session.endDialog();
   	}
   ]);
@@ -223,7 +223,7 @@ function startReminders(msg){
 }
 
 function stressedCases(message){
-  if (message.includes("todo") || message.includes("homework") || message.includes("work")){
+  if (message.includes("todo") || message.includes("wake")|| message.includes("homework") || message.includes("work")){
     return 1;
   }else if (message.includes("joke") || message.includes("funny") || message.includes("sad")){
     return 2;
@@ -240,13 +240,13 @@ function findMotivation(){
 function findAJoke(){
   switch (Math.floor(Math.random() * 4)) {
     case 0:
-      return "Why aren’t koalas actual bears? They don’t meet the koalafications."
+      return "I never forget my son's first words..Where the heck have you been for 16 years?"
       break;
     case 1:
-      return "You know why you never see elephants hiding up in trees? Because they’re really good at it."
+      return "Do I lose when the police officer says papers and I say scissors?"
       break;
     case 2:
-      return "Two gold fish are in a tank. One looks at the other and says, “You know how to drive this thing?!”"
+      return "Why did the bee get married? Because he found his honey."
       break;
     default:
       return "How does NASA organize a party? They planet."
