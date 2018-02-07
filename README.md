@@ -1,7 +1,11 @@
-# careBOTyou
+# HealthWealthBot
 
-A chatbot created with Microsoft's Bot Framework, Microsoft Cognitive Services API for sentiment analysis, Microsoft Azure, GIPHY API
+Mental Health & Wellness is essential to living a full and productive life.
 
-Read more about it here: https://devpost.com/software/carebotyou
+This is a chatbot to help you get out of stress and put a smile on your face.
 
-Test it out here: http://carebotyou.tech
+Bot made with Microsoft Bot Framework and Nodejs. It uses Microsoft’s Cognitive Services Text Analytics API to find out the sentiment of the user and GIPHY’s API for GIF. 
+
+The bot uses a waterfall technique to prompt users for input.
+
+Link to the Skype Bot : https://goo.gl/DTXstJ

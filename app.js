@@ -180,7 +180,7 @@ bot.dialog('/giphy', [
     }, function(session, results) {
         getGiphy(results.response).then(function(gif) {
          session.send(gif.toString());
-            console.log(JSON.parse(gif).data);
+            
             session.send({
                 text: "Here you go!",
                 attachments: [
